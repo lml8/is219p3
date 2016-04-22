@@ -95,7 +95,8 @@ app.controller('HomeController', ['$scope', function($scope) {
 	
 	
       $scope.title = "IMDB + Luis' Top 8 Movies";
-      $scope.owner = "Luis"
+      $scope.owner = "Luis";
+      $scope.github = "https://github.com/lml8/is219p3";
 	
 	/* ADD VARIABLES FOR STEP 3 HERE */
 	
