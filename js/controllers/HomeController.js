@@ -110,7 +110,7 @@ app.controller('HomeController', ['$scope', function($scope) {
       runtime:    121,
       released:   new Date('2002', '05', '03'),
       country:    'USA',
-      posters:    ['img/SpiderMan.jpg', 'img/SpiderMan2.jpg'],
+      posters:    ['img/SpiderMan2.jpg', 'img/SpiderMan.jpg'],
       imdb:       'http://www.imdb.com/title/tt0145487/',
       website:    'http://marvel.com/universe/Spider-Man_(Peter_Parker)',
       likes:      612,
@@ -125,11 +125,11 @@ app.controller('HomeController', ['$scope', function($scope) {
       released:   new Date('1991', '07', '12'),
       country:    'USA',
       posters:    ['img/BoyzNtheHood.jpg', 'img/BoyzNtheHood2.jpg'],
-      imdb:       'http://www.imdb.com/title/tt0108052',
+      imdb:       'http://www.imdb.com/title/tt0101507',
       website:    'https://www.facebook.com/BoyzNtheHood',
       likes:      812,
       dislikes:   81,
-      posterindex: 0
+      posterindex: 1
       }
       ];
 	
@@ -149,16 +149,22 @@ app.controller('HomeController', ['$scope', function($scope) {
       };
 
       $scope.posterClick = function(index) {
-            console.log("hi");
-            if ($scope.movies[index].posterindex > $scope.movies[index].posters.length-1){
-                  // If there are more array indicies, keep incrementing the counter
+            if ($scope.movies[index].posterindex > $scope.movies[index].posters.length-2){
+            
                   $scope.movies[index].posterindex = 0;
             }
             else {
-                  // If we're at the end of the array, reset the counter to start back at 0
-                  $scope.movies[index].posterindex++;
+               $scope.movies[index].posterindex++;
             }
       };
+
+      $scope.timeText= function(minutes){
+            $scope.hours = (Math.floor(Math.abs(minutes)/60));
+            $scope.minutes = (Math.abs(minutes)% 60);
+
+            return $scope.hours + 'h ' + $scope.minutes+ 'm';
+      };
+
       
 
 	/* ADD FUNCTIONS FOR STEP 7 HERE */
