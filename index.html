@@ -16,7 +16,7 @@
 	<!-- DO NOT CHANGE ANYTHING ABOVE THIS LINE-->
 
 	<!-- Angular (ADD HERE) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 
 	
 </head>
@@ -38,7 +38,7 @@
         <div ng-repeat="movie in movies" class="col-md-6"> 
             <div class="thumbnail">
 
-					<img class="poster" ng-src="{{movie.posters}}"/>
+					<img class="poster" ng-src="{{movie.posters[movie.posterindex]}}" ng-click="posterClick($index)"/>
 					<div class="imageInfo">{{movie.posterindex}}</div>
 					
 					<p class="title" >{{movie.title}} ({{movie.country}})</p> 
@@ -49,7 +49,7 @@
 					
 		            <div class="social">
 		              <p class="likes" ng-click="like($index)"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{movie.likes}}</p>
-		              <p class="dislikes" ng-click="plus($index)"><i class="fa fa-thumbs-down" aria-hidden="true"></i> {{movie.dislikes}}</p>
+		              <p class="dislikes" ng-click="dislike($index)"><i class="fa fa-thumbs-down" aria-hidden="true"></i> {{movie.dislikes}}</p>
 		            </div>
             </div> 
         </div>

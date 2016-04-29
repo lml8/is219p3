@@ -96,7 +96,7 @@ app.controller('HomeController', ['$scope', function($scope) {
       runtime:    88,
       released:   new Date('1996', '11', '15'),
       country:    'USA',
-      posters:    ['http://ia.media-imdb.com/images/M/MV5BMTUxMTY4Mzg4NV5BMl5BanBnXkFtZTcwOTU2NzAwMQ@@._V1_UX100_CR0,0,100,100_AL_.jpg','http://ia.media-imdb.com/images/M/MV5BMjAwMTc2MjM4M15BMl5BanBnXkFtZTcwNDE1MzkyMQ@@._V1_UX100_CR0,0,100,100_AL_.jpg'],
+      posters:    ['img/SpaceJam.jpg', 'img/SpaceJam2.jpg'],
       imdb:       'http://www.imdb.com/title/tt0117705',
       website:    'http://www.warnerbros.com/archive/spacejam/movie/jam.htm',
       likes:      312,
@@ -110,7 +110,7 @@ app.controller('HomeController', ['$scope', function($scope) {
       runtime:    121,
       released:   new Date('2002', '05', '03'),
       country:    'USA',
-      posters:    ['http://ia.media-imdb.com/images/M/MV5BMzI4MDk2OTc2M15BMl5BanBnXkFtZTcwMDgwNDkyMQ@@._V1_UY100_CR0,0,100,100_AL_.jpg','http://ia.media-imdb.com/images/M/MV5BZTcxMTMwYTctODM1Mi00MTgyLWI1ZTYtYWNkNTY2ZjYyYjNiXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_UX100_CR0,0,100,100_AL_.jpg'],
+      posters:    ['img/SpiderMan.jpg', 'img/SpiderMan2.jpg'],
       imdb:       'http://www.imdb.com/title/tt0145487/',
       website:    'http://marvel.com/universe/Spider-Man_(Peter_Parker)',
       likes:      612,
@@ -124,16 +124,14 @@ app.controller('HomeController', ['$scope', function($scope) {
       runtime:    195,
       released:   new Date('1991', '07', '12'),
       country:    'USA',
-      posters:    ['http://ia.media-imdb.com/images/M/MV5BMTYyNTY2MTQ5N15BMl5BanBnXkFtZTgwNDg3MjkyMTE@._V1_UX100_CR0,0,100,100_AL_.jpg','http://ia.media-imdb.com/images/M/MV5BMTkwMjYxNjAyNF5BMl5BanBnXkFtZTcwMTM0NDQyNA@@._V1_UX100_CR0,0,100,100_AL_.jpg'],
+      posters:    ['img/BoyzNtheHood.jpg', 'img/BoyzNtheHood2.jpg'],
       imdb:       'http://www.imdb.com/title/tt0108052',
       website:    'https://www.facebook.com/BoyzNtheHood',
       likes:      812,
       dislikes:   81,
       posterindex: 0
-      },
-	
-	
-  ];
+      }
+      ];
 	
 	
       $scope.title = "IMDB + Luis' Top 8 Movies";
@@ -141,50 +139,32 @@ app.controller('HomeController', ['$scope', function($scope) {
       $scope.github = "https://github.com/lml8/is219p3";
 	
 	/* ADD VARIABLES FOR STEP 3 HERE */
-	
-	
-	
-	
-	
-	
-
-
-        $scope.like = function(index) { 
+      
+      $scope.like = function(index) { 
             $scope.movies[index].likes += 1; 
       };
 
-      $scope.plus = function(index) { 
+      $scope.dislike = function(index) { 
             $scope.movies[index].dislikes += 1; 
       };
 
-      $scope.posterClick =function(index){
-            $scope.movies[index].posterindex ++
+      $scope.posterClick = function(index) {
+            console.log("hi");
+            if ($scope.movies[index].posterindex > $scope.movies[index].posters.length-1){
+                  // If there are more array indicies, keep incrementing the counter
+                  $scope.movies[index].posterindex = 0;
+            }
+            else {
+                  // If we're at the end of the array, reset the counter to start back at 0
+                  $scope.movies[index].posterindex++;
+            }
       };
-
-      function posterClick() {
-
-      // Logic for looping back to the 0th index if we're at the end of the array
-      if (movies[index].posterindex+1 < posterindex.length){
-            // If there are more array indicies, keep incrementing the counter
-            mCurrentIndex++;
-            console.log("Increment Counter");
-      }
-      else {
-            // If we're at the end of the array, reset the counter to start back at 0
-            mCurrentIndex = 0;
-            console.log("Reset Counter");
-      }
       
-}
+
 	/* ADD FUNCTIONS FOR STEP 7 HERE */
-		
-	
-	
-	
 	
 	
 	
 	
 	
 }]);
-
